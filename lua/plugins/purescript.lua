@@ -10,6 +10,7 @@ return {
     opts = {
 
       ---@type lspconfig.options
+      ---@class PluginLspOpts
       servers = {
         -- purescriptls will be automatically installed with mason and loaded with lspconfig
         purescriptls = {
