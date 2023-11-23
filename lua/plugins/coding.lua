@@ -51,7 +51,7 @@ return {
           end
         end, { "i", "s" }),
         ["<CR>"] = cmp.mapping(function(fallback)
-          if cmp.visible() then
+          if cmp.visible() and cmp.get_active_entry() then
             cmp.confirm({ select = false })
           else
             fallback()
