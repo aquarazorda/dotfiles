@@ -1,11 +1,17 @@
 return {
   {
+    "rebelot/kanagawa.nvim",
+    config = function()
+      vim.cmd.colorscheme("kanagawa")
+    end,
+  },
+  {
     "ellisonleao/gruvbox.nvim",
   },
   {
     "Shatur/neovim-ayu",
     config = function()
-      vim.cmd.colorscheme("ayu-mirage")
+      -- vim.cmd.colorscheme("ayu-mirage")
     end,
   },
   {
