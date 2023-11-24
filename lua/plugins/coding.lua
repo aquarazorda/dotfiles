@@ -2,8 +2,17 @@ return {
   {
     "prisma/vim-prisma",
   },
-  -- Use <tab> for completion and snippets (supertab)
-  -- first: disable default <tab> and <s-tab> behavior in LuaSnip
+  {
+    "barrett-ruth/import-cost.nvim",
+    build = "sh install.sh npm",
+    ft = {
+      "javascript",
+      "typescript",
+      "javascriptreact",
+      "typescriptreact",
+    },
+    config = true,
+  },
   {
     "L3MON4D3/LuaSnip",
     keys = function()
