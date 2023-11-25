@@ -7,17 +7,19 @@ return {
   },
   {
     "ellisonleao/gruvbox.nvim",
+    lazy = true,
   },
   {
     "Shatur/neovim-ayu",
+    lazy = true,
     config = function()
       -- vim.cmd.colorscheme("ayu-mirage")
     end,
   },
   {
     "sainnhe/gruvbox-material",
-    enabled = true,
     priority = 1,
+    lazy = true,
     config = function()
       vim.g.gruvbox_material_foreground = "material"
       vim.g.gruvbox_material_background = "hard" -- soft, medium, hard

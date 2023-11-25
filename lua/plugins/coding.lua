@@ -1,6 +1,10 @@
 return {
   {
     "prisma/vim-prisma",
+    lazy = true,
+    ft = {
+      "prisma",
+    },
   },
   {
     "barrett-ruth/import-cost.nvim",
