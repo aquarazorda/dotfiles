@@ -1,6 +1,13 @@
 return {
   {
-    "prisma/vim-prisma",
+    "pantharshit00/vim-prisma",
+    lazy = true,
+    ft = {
+      "prisma",
+    },
+  },
+  {
+    "pantharshit00/coc-prisma",
     lazy = true,
     ft = {
       "prisma",

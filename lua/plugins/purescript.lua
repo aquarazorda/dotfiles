@@ -1,12 +1,12 @@
 return {
   -- Syntax highlighting
-  { "purescript-contrib/purescript-vim", lazy = true, event = "BufReadPre *.purs" },
-
+  { "purescript-contrib/purescript-vim", lazy = true, ft = { "purs", "purescript" } },
+  { "vmchale/dhall-vim", lazy = true, ft = { "dhall" } },
   -- LspConfig
   {
     "neovim/nvim-lspconfig",
     lazy = true,
-    event = "BufReadPre *.purs",
+    ft = { "purs", "purescript" },
     ---@class PluginLspOpts
     opts = {
 
