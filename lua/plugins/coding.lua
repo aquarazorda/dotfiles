@@ -1,5 +1,10 @@
 return {
   {
+    "ThePrimeagen/harpoon",
+    branch = "harpoon2",
+    dependencies = { "nvim-lua/plenary.nvim" },
+  },
+  {
     "pantharshit00/vim-prisma",
     lazy = true,
     ft = {
