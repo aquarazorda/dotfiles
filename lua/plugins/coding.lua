@@ -4,6 +4,40 @@ return {
     branch = "harpoon2",
     dependencies = { "nvim-lua/plenary.nvim" },
   },
+  { "gleam-lang/gleam.vim", event = "VeryLazy", ft = {
+    "gleam",
+  } },
+  {
+    "neovim/nvim-lspconfig",
+    ---@class PluginLspOpts
+    opts = {
+      servers = {
+        gleam = { mason = false },
+        rust_analyzer = { mason = false },
+        denols = { mason = false },
+      },
+    },
+  },
+  {
+    "nvim-treesitter/nvim-treesitter",
+    opts = function(_, opts)
+      vim.list_extend(opts.ensure_installed, {
+        "gleam",
+        "typescript",
+      })
+    end,
+  },
+  {
+    "JoosepAlviste/nvim-ts-context-commentstring",
+    event = "VeryLazy",
+    opts = {
+      enable = true,
+      enable_autocmd = false,
+      config = {
+        gleam = "// %s",
+      },
+    },
+  },
   {
     "pantharshit00/vim-prisma",
     lazy = true,
