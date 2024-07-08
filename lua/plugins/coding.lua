@@ -1,5 +1,17 @@
 return {
   {
+    "supermaven-inc/supermaven-nvim",
+    config = function()
+      require("supermaven-nvim").setup({
+        keymaps = {
+          accept_suggestion = "<Tab>",
+          clear_suggestion = "<C-]>",
+          accept_word = "<C-j>",
+        },
+      })
+    end,
+  },
+  {
     "ThePrimeagen/harpoon",
     branch = "harpoon2",
     dependencies = { "nvim-lua/plenary.nvim" },
@@ -14,7 +26,7 @@ return {
       servers = {
         gleam = { mason = false },
         rust_analyzer = { mason = false },
-        denols = { mason = false },
+        -- denols = { mason = false },
       },
     },
   },
@@ -80,6 +92,7 @@ return {
 
       local cmp = require("cmp")
       local luasnip = require("luasnip")
+      local suggestion = require("supermaven-nvim.completion_preview")
 
       opts.completion = { completeopt = "noselect" }
 
@@ -94,6 +107,8 @@ return {
           -- this way you will only jump inside the snippet region
           elseif luasnip.expand_or_jumpable() then
             luasnip.expand_or_jump()
+          elseif suggestion.has_suggestion() then
+            suggestion.on_accept_suggestion()
           elseif has_words_before() then
             cmp.complete()
           else
