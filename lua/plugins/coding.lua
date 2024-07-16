@@ -8,6 +8,7 @@ return {
           clear_suggestion = "<C-]>",
           accept_word = "<C-j>",
         },
+        disable_inline_completion = true,
       })
     end,
   },
@@ -83,6 +84,9 @@ return {
   },
   {
     "hrsh7th/nvim-cmp",
+    dependencies = {
+      "supermaven-inc/supermaven-nvim",
+    },
     opts = function(_, opts)
       local has_words_before = function()
         unpack = unpack or table.unpack
@@ -97,6 +101,8 @@ return {
       opts.completion = { completeopt = "noselect" }
 
       opts.preselect = cmp.PreselectMode.None
+
+      table.insert(opts.sources, { name = "supermaven" })
 
       opts.mapping = vim.tbl_extend("force", opts.mapping, {
         ["<Tab>"] = cmp.mapping(function(fallback)
